@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg: #f6edde;
+    --accent: #162952;
+}
+
+.main-bg {
+    background-color: var(--bg);
+}
+
+.accent-bg {
+    background-color: var(--accent);
+}
+
+.active-link {
+    color: var(--bg);
+    background-color: var(--accent);
+}
+
+.link {
+    color: var(--accent);
+}
+
+.link:hover {
+    color: var(--bg);
+    background-color: var(--accent);
+}
