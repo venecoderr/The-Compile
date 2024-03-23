@@ -10,7 +10,7 @@ export default function App() {
   return (
     <>
       <Nav logo={logoSVG} active={location.pathname}/>
-      <main className="mx-auto py-6 sm:px-6 lg:px-8">
+      <main className="mx-auto py-6">
         <Outlet />
       </main>
       <Footer />

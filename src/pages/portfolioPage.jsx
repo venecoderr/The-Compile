@@ -1,35 +1,50 @@
-import { Link } from 'react-router-dom'
-import { fetchRepos } from '../utils/repos.js'
-import { GlobeAltIcon } from '@heroicons/react/24/outline'
-import dashToSpace from '../utils/dashToSpace.js'
-import gitHubIcon from '../assets/img/github.svg'
+import { useState, useEffect } from 'react';
+import Card from '../components/UI/card.jsx'
+import { fetchRepos } from '../utils/utils.js'
 
 const repos = await fetchRepos()
 
 export default function PortfolioPage() {
-    console.log(repos)
+  // console.log(repos)
+  // State to hold the current picture size
+  const [pictureSize, setPictureSize] = useState({break: '', size: ''});
+
+  // Function to update the current breakpoint  
+  const updatePicture = () => {
+    const width = window.innerWidth;
+    let newPictureSize = {};
+
+    if (width <= 1023) {
+      newPictureSize = {
+        break: 'sm',
+        size: '500'
+      };
+    } else {
+      newPictureSize = {
+        break: 'lg',
+        size: '360x1100'
+      };
+    }
+
+    setPictureSize(newPictureSize);
+  }
+
+  // Update breakpoint when component mounts and when window size changes
+  useEffect(() => {
+    updatePicture();
+    window.addEventListener('resize', updatePicture);
+
+    return () => {
+      window.removeEventListener('resize', updatePicture);
+    };
+  }, []);
+
   return (
     <>
-      <section className='container flex flex-col md:flex-row columns-7'>
+      <section className='container sm:columns-1 md:columns-2 lg:columns-7 h-full'>
         {repos.map((item, index) => (
-          <section className='container flex flex-col border-4 rounded mx-2 h-screen' key={item.id}>
-            <img src="https://placehold.co/300" alt="project image" className='h-4/6' />
-            <p className='h-1/6'>{dashToSpace(item.name)}</p>
-            <section className='container flex flex-row h-1/6'>
-              <Link key={`repo${item.id}`} to={item.html_url}><img src={gitHubIcon} alt="githubIcon" className='size-12 m-1'/></Link>
-              <Link key={`deplo${item.id}`}><GlobeAltIcon className='size-12 m-1'/></Link>
-            </section>
-          </section>
+          <Card repo={item} pictureSize={pictureSize} key={item.id}></Card>
         ))}
-        {/* <section className='container my-1 mx-auto px-4 flex flex-col justify-center w-100 lg:w-1/2'>
-          <h1 className='rounded-full px-4 text-4xl'>Jose Freites</h1>
-          <h2 className='rounded-full px-4'>(Venecoderr)</h2>
-          <p className='rounded-full px-4 text-justify'>Hi, my name is Jose, I'm a 24yo Venezuelan living in Orlando, Fl, 
-          I have a passion for engineering and building useful things, and I'm
-          always looking to expand the <i>array</i> of building skills I have. 
-          For that I have recently graduated from the UCF Coding bootcamp and I'm looking 
-          for opportunities to build more awesome stuff</p>
-        </section> */}
       </section>
      </>
   )

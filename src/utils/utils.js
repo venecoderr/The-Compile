@@ -10,3 +10,7 @@ export const fetchRepos = async () => {
         console.log(error)
     }
 };
+
+export function dashToSpace(inputString) {
+    return inputString.split('-').join(' ');
+}

@@ -7,7 +7,7 @@ import '../assets/css/app.css'
 export default function Footer(){
     return (
         <>
-            <footer className='container flex-column content-center accent-bg'>
+            <footer className='container flex-column content-center accent-bg self-end'>
                 <p className='container main-text text-center my-3'>Powered By</p>
                 <section className='my-1 flex flex-row justify-center'>
                     <section className='flex flex-row rounded-full main-bg'>
