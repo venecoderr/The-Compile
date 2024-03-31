@@ -1,3 +1,4 @@
+//imports of components and main CSS
 import { Outlet, useLocation } from 'react-router-dom'
 import Nav from './components/nav'
 import Footer from './components/footer'

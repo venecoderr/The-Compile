@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import RequiredField from "../components/UI/requiredField";
 
 export default function Form(){
+    //States
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState({address: '', valid: true})
