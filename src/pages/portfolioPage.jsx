@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import Card from '../components/UI/card.jsx'
 import { fetchRepos } from '../utils/utils.js'
 
-const repos = await fetchRepos()
-
 export default function PortfolioPage() {
   // console.log(repos)
   // State to hold the current picture size
   const [pictureSize, setPictureSize] = useState({break: '', size: ''});
-
+  const [repos, setRepos] = useState([])
   // Function to update the current breakpoint  
   const updatePicture = () => {
     const width = window.innerWidth;
@@ -29,6 +27,14 @@ export default function PortfolioPage() {
     setPictureSize(newPictureSize);
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const reposData = await fetchRepos();
+      setRepos(reposData);
+    };
+    fetchData();
+  }, []);
+  
   // Update breakpoint when component mounts and when window size changes
   useEffect(() => {
     updatePicture();
