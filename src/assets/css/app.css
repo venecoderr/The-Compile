@@ -15,6 +15,14 @@
     background-color: var(--accent);
 }
 
+.main-text {
+    color: var(--bg);
+}
+
+.accent-text {
+    color: var(--accent);
+}
+
 .active-link {
     color: var(--bg);
     background-color: var(--accent);
@@ -28,3 +36,4 @@
     color: var(--bg);
     background-color: var(--accent);
 }
+

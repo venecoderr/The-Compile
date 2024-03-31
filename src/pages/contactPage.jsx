@@ -1,7 +1,13 @@
+import Form from "../components/form";
+import '../assets/css/app.css'
+
 export default function ContactPage() {
+
   return (
     <>
-      <h1>Contact</h1>
+      <section className="container text-center">
+        <Form/>
+      </section>
     </>
   )
 }

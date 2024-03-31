@@ -1,47 +1,9 @@
-import { Link,  useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { classNames, highlighter } from '../utils/utils'
+import { tabs } from './UI/tabs.js'
 import '../assets/css/app.css'
-
-const tabs = [
-  {
-    name: 'About Me',
-    href: '/',
-    current: false
-  },
-  {
-    name: 'Portfolio',
-    href: '/portfolio',
-    current: false
-  },
-  {
-    name: 'Contact',
-    href: '/contact',
-    current: false
-  },
-  {
-    name: 'Resume',
-    href: '/resume',
-    current: false
-  },
-
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-function highlighter(tabs, active) {
-  tabs.map((i) => {
-    if(i.href === active){
-      i.current = true
-    } else {
-      i.current = false
-    }
-  })
-
-  return tabs
-}
 
 export default function Nav({ logo, active }) {
   const navigation = highlighter(tabs, active)

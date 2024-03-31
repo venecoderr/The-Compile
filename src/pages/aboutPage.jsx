@@ -8,7 +8,7 @@ export default function AboutPage() {
         <section className='container my-1 mx-auto px-4 w-100 lg:w-1/2'>
           <img src={Avatar} alt="Avatar" className='rounded-full mx-auto px-4'/>
         </section>
-        <section className='container my-1 mx-auto px-4 flex-col justify-center w-100 lg:w-1/2'>
+        <section className='container my-1 mx-auto px-4 flex flex-col justify-center w-100 lg:w-1/2'>
           <h1 className='rounded-full px-4 text-4xl'>Jose Freites</h1>
           <h2 className='rounded-full px-4'>(Venecoderr)</h2>
           <p className='rounded-full px-4 text-justify'>Hi, my name is Jose, I'm a 24yo Venezuelan living in Orlando, Fl, 
